@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<html lang="en-US">
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title>Rock, paper, scissor</title>
+		<meta name="description" content="" />
+		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<link rel="shortcut icon" href="favicon-32x32.png" type="image/x-icon" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;700&display=swap" rel="stylesheet" />
+		<link rel="stylesheet" href="../public/css/global.min.css" />
+		<link rel="stylesheet" href="../public/css/header.min.css" />
+		<link rel="stylesheet" href="../public/css/game.min.css" />
+		<link rel="stylesheet" href="../public/css/rules.min.css" />
+		<link rel="stylesheet" href="../public/css/footer.min.css" />
+	</head>
+	<body>
+		<header>
+			<div class="header__title">
+				<h2 id="game">
+					Rock <br />
+					Paper <br />
+					Scissors
+				</h2>
+			</div>
+			<div class="header__score">
+				<span class="header__score-heading">Score</span>
+				<h2 id="score"></h2>
+			</div>
+		</header>
+
+		<section id="rules__alert">
+			<div class="rules__title">
+				<h3>Rules</h3>
+				<div id="rules__button-close" role="button" aria-label="Close button" onclick="closeRules()">
+					<img src="../src/images/icon-close.svg" alt="Close button icon" />
+				</div>
+			</div>
+			<img src="../src/images/image-rules.svg" alt="Game rules" />
+		</section>
+
+		<div id="background__rules-darken"></div>
+
+		<main>
+			<div id="action__picker" class="main__container">
+				<div role="button" onclick="playRock()" id="rock" class="main__action" aria-label="Play rock">
+					<img src="../src/images/icon-rock.svg" alt="" />
+					<div class="main__action-button"></div>
+					<div class="main__action-shadow"></div>
+				</div>
+				<div role="button" onclick="playPaper()" id="paper" class="main__action" aria-label="Play paper">
+					<img src="../src/images/icon-paper.svg" alt="" />
+					<div class="main__action-button"></div>
+					<div class="main__action-shadow"></div>
+				</div>
+				<div role="button" onclick="playScissors()" id="scissors" class="main__action" aria-label="Play scissors">
+					<img src="../src/images/icon-scissors.svg" alt="" />
+					<div class="main__action-button"></div>
+					<div class="main__action-shadow"></div>
+				</div>
+				<img class="main__background" src="../src/images/bg-triangle.svg" alt="background triangle" />
+			</div>
+
+			<div id="main__game" class="main__game-running">
+				<div>
+					<h4>You picked</h4>
+					<div id="user-pick"></div>
+				</div>
+				<div id="game__end-button" class="hidden">
+					<h5 id="game__end-title"></h5>
+					<div role="button" onclick="replay()" aria-label="Play again button">Play again</div>
+				</div>
+				<div>
+					<h4>The house picked</h4>
+					<div id="house-pick">
+						<div id="house-rock" class="main__action hidden">
+							<img src="../src/images/icon-rock.svg" alt="" />
+							<div class="main__action-button"></div>
+							<div class="main__action-shadow"></div>
+						</div>
+						<div id="house-paper" class="main__action hidden">
+							<img src="../src/images/icon-paper.svg" alt="" />
+							<div class="main__action-button"></div>
+							<div class="main__action-shadow"></div>
+						</div>
+						<div id="house-scissors" class="main__action hidden">
+							<img src="../src/images/icon-scissors.svg" alt="" />
+							<div class="main__action-button"></div>
+							<div class="main__action-shadow"></div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</main>
+
+		<footer>
+			<div id="rules__button-open" role="button" onclick="callRules()">Rules</div>
+		</footer>
+		<script src="../src/scripts/showRules.js"></script>
+		<script src="../src/scripts/gameCommands.js"></script>
+	</body>
+</html>

@@ -1,0 +1,336 @@
+main {
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+
+	padding-top: 64px;
+
+	flex-grow: 1;
+
+	width: 100%;
+}
+
+.main__container {
+	display: flex;
+
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+
+	position: relative;
+
+	width: clamp(40%, 400px, 90%);
+	height: auto;
+
+	z-index: 10;
+}
+
+.main__background {
+	aspect-ratio: 1.1;
+
+	pointer-events: none;
+
+	z-index: -2;
+
+	width: clamp(50%, 500px, 70%);
+}
+
+.main__action {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	position: absolute;
+
+	width: clamp(10%, 128px, 35%);
+
+	border-radius: 75px;
+
+	aspect-ratio: 1;
+
+	z-index: 10;
+
+	box-shadow: 0 16px 0 12px rgba(0, 0, 0, 0.2);
+
+	& img {
+		width: clamp(30%, 80px, 40%);
+	}
+
+	&:hover {
+		cursor: pointer;
+
+		& * {
+			filter: brightness(1.1);
+		}
+	}
+
+	&:active {
+		box-shadow: none;
+
+		& * {
+			filter: brightness(0.75);
+		}
+
+		& .main__action-shadow {
+			box-shadow: inset 0 4px 0px 2px rgba(0, 0, 0, 0.2);
+		}
+
+		& .main__action-button,
+		img {
+			transform: translateY(3%);
+		}
+	}
+}
+
+#paper,
+#house-paper {
+	top: 0;
+	left: 0;
+
+	transform: translateY(-50%);
+
+	& > .main__action-shadow {
+		background: linear-gradient(to top, hsl(230, 89%, 62%), hsl(230, 89%, 65%));
+	}
+}
+
+#scissors,
+#house-scissors {
+	top: 0;
+	right: 0;
+
+	transform: translateY(-50%);
+
+	& > .main__action-shadow {
+		background: linear-gradient(to top, hsl(39, 89%, 49%), hsl(40, 84%, 53%));
+	}
+}
+
+#rock,
+#house-rock {
+	bottom: 0;
+
+	& > .main__action-shadow {
+		background: linear-gradient(to top, hsl(349, 71%, 52%), hsl(349, 70%, 56%));
+	}
+}
+
+.main__action-shadow {
+	position: absolute;
+
+	height: 130%;
+	width: 130%;
+
+	border-radius: 100px;
+
+	box-shadow: inset 0 -4px 0px 2px rgba(0, 0, 0, 0.2);
+	z-index: -10;
+}
+
+.main__action-button {
+	background-color: #fff;
+
+	position: absolute;
+
+	width: clamp(50%, 128px, 90%);
+
+	aspect-ratio: 1;
+
+	border-radius: 100px;
+	box-shadow: inset 0 4px 0px 2px rgba(0, 0, 0, 0.2);
+
+	z-index: -1;
+}
+
+.main__game-running {
+	height: 100%;
+	width: 100%;
+
+	display: none;
+
+	justify-content: center;
+	align-items: center;
+
+	gap: 48px;
+
+	pointer-events: none;
+
+	@media screen and (max-width: 576px) {
+		gap: 40px;
+	}
+
+	@media screen and (max-width: 300px) {
+		gap: 24px;
+	}
+
+	& h4 {
+		text-align: center;
+
+		font-size: 1.1rem;
+
+		@media screen and (max-width: 576px) {
+			font-size: 1rem;
+		}
+
+		@media screen and (max-width: 426px) {
+			font-size: 0.75rem;
+		}
+	}
+
+	& > div {
+		text-transform: uppercase;
+
+		height: 100%;
+
+		display: flex;
+		justify-content: flex-start;
+		align-items: center;
+
+		flex-direction: column;
+
+		gap: 96px;
+
+		@media screen and (max-width: 640px) {
+			justify-content: flex-end;
+
+			flex-direction: column-reverse;
+
+			gap: 24px;
+		}
+	}
+}
+
+#house-pick,
+#user-pick {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	font-size: 2rem;
+	font-weight: 700;
+
+	// width: clamp(60%, 128px, 75%);
+	min-height: 125px;
+
+	aspect-ratio: 1;
+
+	border-radius: 100px;
+
+	background: rgba(0, 0, 0, 0.2);
+
+	@media screen and (max-width: 300px) {
+		min-height: 100px;
+	}
+
+	& div {
+		@media screen and (max-width: 576px) {
+			transform: scale(0.9);
+		}
+	}
+}
+
+.chosen {
+	top: auto !important;
+	left: auto !important;
+	right: auto !important;
+	bottom: auto !important;
+
+	transform: none !important;
+
+	box-shadow: none;
+}
+
+.show-flex {
+	display: flex;
+}
+
+.hidden {
+	display: none !important;
+}
+
+.winner {
+	animation: 1.5s brightBackground infinite;
+
+	@keyframes brightBackground {
+		0% {
+			box-shadow: 0 0 25px 2px hsla(134, 87%, 40%, 1);
+		}
+		50% {
+			box-shadow: 0 0 75px 5px hsla(134, 87%, 40%, 1);
+		}
+		100% {
+			box-shadow: 0 0 25px 2px hsla(134, 87%, 40%, 1);
+		}
+	}
+}
+
+.draw {
+	filter: grayscale(1);
+}
+
+#game__end-button {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	align-self: center;
+
+	height: 50%;
+
+	filter: grayscale(0) !important;
+
+	gap: 16px;
+
+	@media screen and (max-width: 640px) {
+		bottom: 0;
+
+		padding-bottom: 24px;
+
+		position: absolute;
+	}
+
+	& > h5 {
+		font-size: 2.5rem;
+		font-weight: 700;
+
+		text-transform: uppercase;
+
+		@media screen and (max-width: 768px) {
+			font-size: 2.25rem;
+		}
+	}
+
+	& > div {
+		border-radius: 8px;
+
+		color: #6b6682;
+		background-color: #fff;
+
+		width: 100%;
+		min-width: 175px;
+
+		padding: 12px 0;
+
+		text-align: center;
+
+		pointer-events: all;
+
+		cursor: pointer;
+
+		transition: 200ms all;
+
+		z-index: 99;
+
+		&:hover {
+			color: hsl(349, 71%, 52%) !important;
+			box-shadow: 0 4px 8px 4px rgba(0, 0, 0, 0.2);
+		}
+
+		// @media screen and (max-width: 768px) {
+		// 	font-size: 0.75rem;
+
+		// 	padding: 12px 16px;
+		// }
+	}
+}

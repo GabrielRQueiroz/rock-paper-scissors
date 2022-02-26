@@ -1,0 +1,16 @@
+{
+	"name": "rps-rock_paper_scissors",
+	"version": "1.0.0",
+	"description": "![Design preview for the Rock, Paper, Scissors coding challenge](./design/desktop-preview.jpg)",
+	"source": "/public/index.html",
+	"scripts": {
+		"start": "parcel",
+		"build": "parcel build"
+	},
+	"author": "",
+	"license": "ISC",
+	"devDependencies": {
+		"parcel": "^2.3.2",
+		"parcel-bundler": "^1.12.5"
+	}
+}

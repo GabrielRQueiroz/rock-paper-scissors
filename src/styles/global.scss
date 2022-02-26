@@ -1,0 +1,33 @@
+* {
+	margin: 0;
+	padding: 0;
+
+	box-sizing: border-box;
+
+	font-family: 'Barlow Semi Condensed', sans-serif;
+	color: #fff;
+}
+
+html,
+body {
+	height: 100%;
+	/* Created with https://www.css-gradient.com */
+	background: hsl(214, 40%, 33%);
+	background: -webkit-radial-gradient(circle at top, hsl(214, 40%, 33%), hsl(238, 48%, 15%));
+	background: -moz-radial-gradient(circle at top, hsl(214, 40%, 33%), hsl(237, 49%, 15%));
+	background: -ms-radial-gradient(circl at top, hsl(214, 40%, 33%), hsl(237, 49%, 15%));
+	background: -o-radial-gradient(circle at top, hsl(214, 40%, 33%), hsl(237, 49%, 15%));
+	background: radial-gradient(circle at top, hsl(214, 40%, 33%), hsl(237, 49%, 15%));
+}
+
+body {
+	display: flex;
+
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-between;
+
+	width: 100%;
+
+	padding-top: 32px;
+}
